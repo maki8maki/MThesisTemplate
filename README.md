@@ -98,6 +98,10 @@
 * vから始まるタグをつけてpushしたときにmain.pdfとソースコードの圧縮ファイルがrelaseの形でgithub上に保存される
   * 1/nモデルの提出時などに保存すると良い
 
+**注意**
+* `HTTP 403: Resource not accessible by integration`のエラーが出たとき
+  * [このページ](https://zenn.dev/tatsugon/articles/github-actions-permission-error)を参考にレポジトリの設定を変更する
+
 ## Tips
 
 ### ファイル分割
