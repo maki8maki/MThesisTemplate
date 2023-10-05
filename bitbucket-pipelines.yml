@@ -1,0 +1,25 @@
+options:
+  max-time: 3
+clone:
+  depth: 1
+definitions:
+  steps:
+    - step: &build-deploy
+        name: Build PDF by latexmk
+        script:
+          - USE_DOCKER=no bash bin/build.sh
+        artifacts:
+          - main.log
+          - main.pdf
+        after-script:
+          - bash bin/upload_bitbucket.sh
+        services:
+          - docker
+image: ghcr.io/being24/latex-docker:latest
+pipelines:
+  branches:
+    master:
+      - step: *build-deploy
+  tags:
+    v*:
+      - step: *build-deploy

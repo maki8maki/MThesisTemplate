@@ -1,0 +1,12 @@
+version: "3"
+services:
+  LaTeX:
+    image: ghcr.io/being24/latex-docker
+    #build: .
+    command: sleep infinity
+    volumes:
+      - ../:/workdir
+      - ~/.gitconfig:/root/.gitconfig
+      - ./.latexmkrc:/root/.latexmkrc
+    environment:
+      SHELL: "/bin/bash"

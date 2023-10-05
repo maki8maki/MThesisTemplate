@@ -1,0 +1,40 @@
+% pesummary.sty
+\typeout{pesummary.sty - Thu, Jan 5 2023 by Yuki Yamaguchi}
+
+\usepackage[top=22truemm, bottom=22truemm, right=19truemm, left=19truemm, driver=dvipdfm]{geometry} % ページの余白の設定
+\usepackage[runin]{abstract}
+
+\pagestyle{empty}
+
+% 図に関する余白の設定
+\setlength\floatsep{2truemm} % 図と図の間の余白
+\setlength\intextsep{0pt} % 本文中の図の余白
+\setlength\textfloatsep{0pt} % 本文と図の間の余白
+\setlength\abovecaptionskip{0pt} % 図とキャプションの間の余白
+
+% タイトルの設定
+\def\title#1{\gdef\@title{#1}}
+\def\etitle#1{\gdef\@etitle{#1}}
+\def\studentid#1{\gdef\@studentid{#1}}
+\def\author#1{\gdef\@author{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\abst#1{\gdef\@abst{#1}}
+
+\renewcommand{\abstractname}{Abstract}
+
+\renewcommand{\maketitle}{
+  \twocolumn[
+  \begin{center}
+      {\Large \textbf{\@title}}\\
+      \vspace{2mm}
+      {\large \@etitle}
+  \end{center}
+  \begin{flushright}
+      \@studentid \@author\\
+      指導教員 \@supervisor
+  \end{flushright}
+  \begin{abstract}
+      \@abst
+  \end{abstract}
+  ]
+}

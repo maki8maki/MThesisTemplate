@@ -1,0 +1,101 @@
+{
+    "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?　、。「」【】『』（）！？てにをはがのともへでや",
+    "[tex]": {
+        // スニペット補完中にも補完を使えるようにする
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        // インデント幅を2にする
+        "editor.tabSize": 2
+    },
+    "[latex]": {
+        // スニペット補完中にも補完を使えるようにする
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        // インデント幅を2にする
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "James-Yu.latex-workshop",
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": true,
+    },
+    "[bibtex]": {
+        // インデント幅を2にする
+        "editor.tabSize": 2
+    },
+    // 使用パッケージのコマンドや環境の補完を有効にする
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "bash",
+            "args": [
+                "/workdir/bin/compile.sh",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "diff",
+            "command": "bash",
+            "args": [
+                "/workdir/bin/diff.sh",
+                "%DOC_EXT%"
+            ]
+        },
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "compile",
+            "tools": [
+                "latexmk",
+            ]
+        },
+        {
+            "name": "create_diff",
+            "tools": [
+                "diff",
+            ]
+        },
+    ],
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+    "latex-workshop.view.pdf.ref.viewer": "tabOrBrowser",
+    "latex-workshop.latex.outDir": "out",
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        // "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        // "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.fdb_latexmk",
+        // "*.synctex.gz",
+        "_minted*",
+        "*.nav",
+        "*.snm",
+        "*.vrb",
+        "*.run.xml",
+        "*.dvi",
+        "*.fdb_latexmk",
+        "*.fls",
+        "*.bcf",
+        //"*.log",
+        //"*/*.log",
+        "*.mtc*",
+        "*.bmt"
+    ],
+    "latex-workshop.latexindent.path": "bash",
+    "latex-workshop.latexindent.args": [
+        "/workdir/bin/linter.sh",
+    ],
+}
