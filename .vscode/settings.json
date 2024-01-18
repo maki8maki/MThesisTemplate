@@ -16,9 +16,8 @@
         "files.trimTrailingWhitespace": true,
     },
     "[bibtex]": {
-        // インデント幅を2にする
         "editor.wordWrap": "off",
-        "editor.tabSize": 2,
+        "editor.tabSize": 3,
         "editor.insertSpaces": true,
         "files.trimTrailingWhitespace": true,
     },
@@ -34,7 +33,7 @@
       "year"
     ],
     // Basic format settings
-    "latex-workshop.bibtex-format.tab": "2 spaces",
+    "latex-workshop.bibtex-format.tab": "3 spaces",
     "latex-workshop.bibtex-format.case": "lowercase",
     "latex-workshop.bibtex-format.surround": "Curly braces",
     "latex-workshop.bibtex-format.trailingComma": true,
