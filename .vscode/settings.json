@@ -17,8 +17,47 @@
     },
     "[bibtex]": {
         // インデント幅を2にする
-        "editor.tabSize": 2
+        "editor.wordWrap": "off",
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "files.trimTrailingWhitespace": true,
     },
+    // Intellisense for BibTeX
+    "latex-workshop.intellisense.citation.label": "title",
+    "latex-workshop.intellisense.citation.type": "inline",
+    "latex-workshop.intellisense.citation.format": [
+      "author",
+      "title",
+      "journal",
+      "publisher",
+      "booktitle",
+      "year"
+    ],
+    // Basic format settings
+    "latex-workshop.bibtex-format.tab": "2 spaces",
+    "latex-workshop.bibtex-format.case": "lowercase",
+    "latex-workshop.bibtex-format.surround": "Curly braces",
+    "latex-workshop.bibtex-format.trailingComma": true,
+    "latex-workshop.bibtex-format.handleDuplicates": "Comment Duplicates",
+    // Align "="
+    "latex-workshop.bibtex-format.align-equal.enabled": true,
+    // Sort fields
+    "latex-workshop.bibtex-fields.sort.enabled": true,
+    "latex-workshop.bibtex-fields.order": [
+        "title",
+        "author",
+        "editor",
+        "year",
+        "journal",
+        "publisher",
+        "school",
+        "institution",
+    ],
+    // Sort bib order
+    "latex-workshop.bibtex-format.sort.enabled": true,
+    "latex-workshop.bibtex-format.sortby": [
+        "key"
+    ],
     // 使用パッケージのコマンドや環境の補完を有効にする
     "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.latex.tools": [
