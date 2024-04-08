@@ -1,6 +1,6 @@
 \ProvidesClass{/workdir/classes/summary}[2023/01/05 summary]
 
-\LoadClass[dvipdfmx, uplatex, twocolumn, 9pt]{jsarticle}
+\LoadClass[twocolumn, 9pt]{ltjsarticle}
 
 \usepackage{silence}
 \WarningFilter{caption}{Unknown document}
@@ -9,12 +9,12 @@
 \usepackage[numbers]{natbib}
 \usepackage{amsmath, mathtools}
 % \usepackage{booktabs}
-\usepackage[dvipdfmx]{graphicx}
+\usepackage{graphicx}
 \usepackage{siunitx}
 % \usepackage{caption}
 % \usepackage[subrefformat=parens]{subcaption}
 % \captionsetup{compatibility=false, labelsep=quad}
-% \usepackage[dvipdfmx]{hyperref}
+% \usepackage{hyperref}
 % \hypersetup{ % hyperrefパッケージのオプション設定
 % setpagesize=false, % ページサイズが変わってしまうのを防ぐ
 % colorlinks=true, % リンクに色を付ける

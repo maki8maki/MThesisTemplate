@@ -1,6 +1,6 @@
 \ProvidesClass{/workdir/classes/thesis}[2022/11/30 thesis]
 
-\LoadClass[dvipdfmx,12pt, uplatex]{jsbook}
+\LoadClass[12pt]{ltjsbook}
 
 \usepackage{silence}
 \WarningFilter{caption}{Unknown document}
@@ -9,8 +9,8 @@
 \usepackage{amsmath,amssymb,bm}
 \usepackage{minitoc}
 \usepackage{booktabs}
-\usepackage[dvipdfmx]{graphicx} %橘高変更 dvipdfm → dvipdfmx（前者は古いのでeps以外の画像形式に非対応）
-%\usepackage[dvipdfmx,draft]{graphicx} %画像を表示せず枠だけ確保しコンパイル時間減らす
+\usepackage{graphicx}
+%\usepackage[draft]{graphicx} %画像を表示せず枠だけ確保しコンパイル時間減らす
 \usepackage{ascmac} % 枠の中に文章を記述する
 \usepackage{url}
 \usepackage{siunitx} % 単位を簡単に記述できる
@@ -18,23 +18,23 @@
 \usepackage[subrefformat=parens]{subcaption} %橘高追加
 \captionsetup{compatibility=false, labelsep=quad} %橘高追加 %コロンがcaptionに入ってたので，labelsep=quadを追加(藤野)
 \usepackage{optidef} % 最適化問題を簡単に書ける
-\usepackage[dvipdfmx, usenames]{color} %橘高追加 [usenames] → [dvipdfmx, usenames]（前者は古いドライバのため，graphicxパッケージと干渉してeps以外の画像形式に対応できなくなる），文字を色付けできる
+\usepackage[usenames]{color} %文字を色付けできる
 \usepackage{csvsimple-l3} % csvファイルから表を作成する
 \usepackage{midpage} % 図表をページ中央に配置する
+\usepackage[numbers]{natbib} % \citeにハイパーリンクをつけるためのおまじない
 \usepackage{multibib} % 参考文献をわけて表示する
 \newcites{ja}{a} % 第2引数は使用しないので適当
 \newcites{en}{b} % 第2引数は使用しないので適当
 \usepackage{subfiles} % 分割コンパイルを可能にする
-\usepackage[dvipdfmx]{hyperref} % ハイパーリンクの作成
+\usepackage[unicode=true]{hyperref} % ハイパーリンクの作成
 \urlstyle{same} % 地の文とurlのフォントを同じにする
 \hypersetup{ % hyperrefパッケージのオプション設定
 setpagesize=false, % ページサイズが変わってしまうのを防ぐ
 colorlinks=true, % リンクに色を付ける
-urlcolor=black, % 外部参照のURLは青（wordに近い）
+urlcolor=black, % 外部参照は黒（＝地の文と同じ）
 linkcolor=black, % 内部参照は黒（＝地の文と同じ）
 citecolor=black % 文献参照は黒（＝地の文と同じ）
 }
-\usepackage{pxjahyper}
 
 \newcommand{\reffig}[1]{図\ref{#1}}
 \newcommand{\refsubfig}[1]{\subref{#1}}
