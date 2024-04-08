@@ -4,7 +4,6 @@
 \usepackage{fancybox}
 \usepackage{times}
 \usepackage[T1]{fontenc}
-% \usepackage{subfigure}
 \usepackage{enumerate}
 
 % 1inch = 25.4 mm
@@ -35,12 +34,12 @@
 
 	\begin{center}
 		\vspace*{15truemm}
-		{\bf \@thesistype}\\
+		{\textbf \@thesistype}\\
 		\vspace*{5truemm}
 		\includegraphics[width=45truemm]{figures/utlogo.pdf}\\
 		\vspace*{20truemm}
 
-		{\bfseries{\LARGE \@title}}\\
+		{\textbf{\LARGE \@title}}\\
 		\vspace*{10truemm}
 		{\Large \@etitle}\\
 		\vspace*{40truemm}
@@ -64,7 +63,7 @@
 % jsbook �ł�abstract�����Ȃ��̂ŁA�����ɑΉ���������
 %
 \newenvironment{coverabstract}{
-\thispagestyle{empty} \vspace*{40truemm} \begin{center} {\bf これどこ}\end{center} \begin{minipage}[t]{\textwidth}}{
+\thispagestyle{empty} \vspace*{40truemm} \begin{center} {\textbf これどこ}\end{center} \begin{minipage}[t]{\textwidth}}{
  \end{minipage}}
 
 %�g���쐬

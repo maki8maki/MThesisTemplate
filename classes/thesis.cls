@@ -52,8 +52,8 @@ citecolor=black % 文献参照は黒（＝地の文と同じ）
 
 \newcommand{\red}[1]{\textcolor{red}{#1}} % colorパッケージと合わせてコメントアウトを外す
 
-\newcommand{\argmax}{\mathop{\rm arg~max}\limits}   % ★★★ 田中追加 ★★★
-\newcommand{\argmin}{\mathop{\rm arg~min}\limits}  % ★★★ 田中追加 ★★★
+\newcommand{\argmax}{\mathop{\textrm{arg~max}}\limits}   % ★★★ 田中追加 ★★★
+\newcommand{\argmin}{\mathop{\textrm{arg~min}}\limits}  % ★★★ 田中追加 ★★★
 
 % 3桁区切りでコンマを入れる **小数点以下にも入るので注意**
 \newcommand{\SIcomma}[2]{\SI[group-minimum-digits = 3, group-separator = {,}]{#1}{#2}}
