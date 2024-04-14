@@ -36,6 +36,13 @@ linkcolor=black, % 内部参照は黒（＝地の文と同じ）
 citecolor=black % 文献参照は黒（＝地の文と同じ）
 }
 
+% フォントの設定
+\usepackage[haranoaji,deluxe,scale=1]{luatexja-preset}
+\setmainfont[BoldFont=TeXGyreTermes-Bold,ItalicFont=TeXGyreTermes-Italic,Ligatures=TeX]{TeXGyreTermes}
+\setsansfont[BoldFont=TeXGyreHeros-Bold,ItalicFont=TeXGyreHeros-Italic,Ligatures=TeX]{TeXGyreHeros}
+\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+\setmathfont{TeX Gyre Termes Math}
+
 \newcommand{\reffig}[1]{図\ref{#1}}
 \newcommand{\refsubfig}[1]{\subref{#1}}
 \newcommand{\reftab}[1]{表\ref{#1}}

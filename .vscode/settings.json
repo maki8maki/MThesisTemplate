@@ -137,4 +137,8 @@
     "latex-workshop.latexindent.args": [
         "/workdir/bin/linter.sh",
     ],
+    "latex-workshop.message.latexlog.exclude": [
+        "Japanese fonts will be scaled",
+        "*addjfontfeature*",
+      ],
 }
