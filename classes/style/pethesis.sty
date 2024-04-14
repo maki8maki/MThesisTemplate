@@ -5,10 +5,7 @@
 \usepackage{enumerate}
 
 % 1inch = 25.4 mm
-% A4 210mm�~297mm
-%
-% �y�[�W�̑̍�
-%
+% A4 210mm~297mm
 \oddsidemargin=-0.4truemm  %% 25mm
 \evensidemargin=-0.4truemm %% 25mm
 \topmargin=-10.4truemm
@@ -57,21 +54,9 @@
 	\cleardoublepage
 }
 
-%
-% jsbook �ł�abstract�����Ȃ��̂ŁA�����ɑΉ���������
-%
-\newenvironment{coverabstract}{
-\thispagestyle{empty} \vspace*{40truemm} \begin{center} {\textbf これどこ}\end{center} \begin{minipage}[t]{\textwidth}}{
- \end{minipage}}
-
-%�g���쐬
 %http://www.biwako.shiga-u.ac.jp/sensei/kumazawa/tex/fancyhdrbook.html
 \pagestyle{fancyplain}
 
-
-%
-% �y�[�W�w�b�_�̐���
-%
 \fancyhead{}
 \fancyhead[RO,RE]{\rightmark}
 \fancyhead[LE,LO]{\leftmark}
@@ -81,61 +66,25 @@
 \renewcommand{\chaptermark}[1]{\markboth{第\ \thechapter\ 章~#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection #1}{}}
 
-
-%%jsbook �ł͊֘A�}���ƂȂ��̂ŕύX
-\renewcommand{\bibname}{�Q�l����}
-
-%% (j)report�E(j)book �N���X�̏ꍇ
-%% �Q�l�������ڎ��ɏ����悤�ɂ����B
-%%http://www.nsknet.or.jp/~tony/TeX/faq/macro.htm
-%%
-
-\makeatletter
-\renewenvironment{thebibliography}[1]% �Ē��`
-{\chapter*{\bibname\@mkboth{\bibname}{\bibname}}%
- \addcontentsline{toc}{chapter}{\bibname}% ���̍s�ǉ�
-   \list{\@biblabel{\@arabic\c@enumiv}}%
-        {\settowidth\labelwidth{\@biblabel{#1}}%
-         \leftmargin\labelwidth
-         \advance\leftmargin\labelsep
-         \@openbib@code
-         \usecounter{enumiv}%
-         \let\p@enumiv\@empty
-         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-   \sloppy
-   \clubpenalty4000
-   \@clubpenalty\clubpenalty
-   \widowpenalty4000%
-   \sfcode`\.\@m}
-  {\def\@noitemerr
-    {\@latex@warning{Empty `thebibliography' environment}}%
-   \endlist}
-\makeatother
-
 %
-% \chapter�̍Ē��`
+% \chapter
 %
 \makeatletter
 \renewcommand{\chapter}{%
   \if@openright\cleardoublepage\else\clearpage\fi
-%   \thispagestyle{plain}% chapter�ŏ��̃y�[�W�ԍ����t�b�^�����ɔz�u
     \global\@topnum\z@
   \if@english \@afterindentfalse \else \@afterindenttrue \fi
   \secdef\@chapter\@schapter
 }
-
-
 \makeatother
 
 %http://www.asianwing.com/chapter.htm
 
 %
-% \tableofcontents��toc�t�@�C���쐬����\subsection �܂ō������쐬�����B
+% \tableofcontents
 %
 \setcounter{tocdepth}{2}
-%
-% �����̌��o���A�y�[�W�ԍ��̃h�b�g�̊Ԋu���ύX
-%
+
 \makeatletter
 \renewcommand{\@dotsep}{1} % 9/18 em
 \makeatother
@@ -143,7 +92,6 @@
 \setlength{\labelwidth}{-4pt}
 \def\mythebibliography#1{
 %\subsection*{\markboth
-% {�Q �l �� ��}{�Q �l �� ��}}
 \list
  {[\arabic{enumi}]}{\leftmargin\labelwidth
  \advance\leftmargin\labelsep
