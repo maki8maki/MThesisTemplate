@@ -284,15 +284,15 @@
 
 \newlength\mtcindent % indentation (left/right) of minitocs
 \mtcindent=24pt      % defaut value
-\def\mtcfont{\small\rm}    % font for the minitoc
-\def\mtcSfont{\small\bf}   % font for the minitoc (sections)
+\def\mtcfont{\small\bfseries}    % font for the minitoc
+\def\mtcSfont{\small\bfseries}   % font for the minitoc (sections)
 \def\mtcSSfont{\mtcfont}   % font for the minitoc (subsections)
 \def\mtcSSSfont{\mtcfont}  % font for the minitoc (subsubsections)
 \def\mtcPfont{\mtcfont}    % font for the minitoc (paragraphs)
 \def\mtcSPfont{\mtcfont}   % font for the minitoc (subparagraphs)
 \def\mlffont{\mtcfont}     % font for the minilof (figures)
 \def\mltfont{\mtcfont}     % font for the minilot (tables)
-\def\mtifont{\large\bf}    % font for titles
+\def\mtifont{\large\bfseries}    % font for titles
 \def\coffeefont{\small\sl} % font for COFFEE breaks
 
 % Centering, flushleft, flushright or empty titles.
@@ -944,7 +944,7 @@
       \string\reset@font
       \string\coffeefont
       \string\mtc@string
-%COFFEE \string\textbf{#1}%
+%COFFEE \string\bfseries{#1}%
       {\the\mtc@toks}%
       {%
         \string\reset@font
@@ -986,26 +986,26 @@
 \@ifundefined{chapter}{\ptcindent=24pt}{\ptcindent=0pt} % defaut value
 
 \@ifundefined{chapter}{%
-\def\ptcfont{\small\rm}    % font for the parttoc
-\def\ptcSfont{\small\bf}   % font for the parttoc (sections)
+\def\ptcfont{\small\bfseries}    % font for the parttoc
+\def\ptcSfont{\small\bfseries}   % font for the parttoc (sections)
 \def\ptcSSfont{\ptcfont}   % font for the parttoc (subsections)
 \def\ptcSSSfont{\ptcfont}  % font for the parttoc (subsubsections)
 \def\ptcPfont{\ptcfont}    % font for the parttoc (paragraphs)
 \def\ptcSPfont{\ptcfont}   % font for the parttoc (subparagraphs)
 \def\plffont{\ptcfont}     % font for the partlof (figures)
 \def\pltfont{\ptcfont}     % font for the partlot (tables)
-\def\ptifont{\large\bf}    % font for titles
+\def\ptifont{\large\bfseries}    % font for titles
 }{%
-\def\ptcfont{\normalsize\rm}    % font for the parttoc
-\def\ptcCfont{\normalsize\bf}   % font for the parttoc (chapters)
-\def\ptcSfont{\normalsize\rm}   % font for the parttoc (sections)
+\def\ptcfont{\normalsize\bfseries}    % font for the parttoc
+\def\ptcCfont{\normalsize\bfseries}   % font for the parttoc (chapters)
+\def\ptcSfont{\normalsize\bfseries}   % font for the parttoc (sections)
 \def\ptcSSfont{\ptcfont}   % font for the parttoc (subsections)
 \def\ptcSSSfont{\ptcfont}  % font for the parttoc (subsubsections)
 \def\ptcPfont{\ptcfont}    % font for the parttoc (paragraphs)
 \def\ptcSPfont{\ptcfont}   % font for the parttoc (subparagraphs)
 \def\plffont{\ptcfont}     % font for the partlof (figures)
 \def\pltfont{\ptcfont}     % font for the partlot (tables)
-\def\ptifont{\Huge\bf}     % font for titles
+\def\ptifont{\Huge\bfseries}     % font for titles
 }
 
 % Centering, flushleft, flushright or empty titles.
@@ -1650,14 +1650,14 @@
 
 \newlength\stcindent % indentation (left/right) of secttocs
 \stcindent=24pt      % defaut value
-\def\stcfont{\small\rm}    % font for the secttoc
-\def\stcSSfont{\normalsize\bf}   % font for the secttoc (subsections)
+\def\stcfont{\small\bfseries}    % font for the secttoc
+\def\stcSSfont{\normalsize\bfseries}   % font for the secttoc (subsections)
 \def\stcSSSfont{\stcfont}  % font for the secttoc (subsubsections)
 \def\stcPfont{\stcfont}    % font for the secttoc (paragraphs)
 \def\stcSPfont{\stcfont}   % font for the secttoc (subparagraphs)
 \def\slffont{\stcfont}     % font for the sectlof (figures)
 \def\sltfont{\stcfont}     % font for the sectlot (tables)
-\def\stifont{\Large\bf}    % font for titles
+\def\stifont{\Large\bfseries}    % font for titles
 
 % Centering, flushleft, flushright or empty titles.
 \def\c@sti#1{\null\hfill #1\hfill\null}
