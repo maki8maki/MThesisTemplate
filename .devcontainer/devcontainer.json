@@ -3,22 +3,23 @@
 {
 	"name": "LaTeX",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    "dockerComposeFile": "docker-compose.yml",
-    // "image": "ghcr.io/being24/latex-docker",
+	"image": "ghcr.io/being24/latex-docker",
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"James-Yu.latex-workshop",
 				"mhutchie.git-graph",
 				"shardulm94.trailing-spaces",
-				"mosapride.zenkaku"
+				"mosapride.zenkaku",
+				"taichi.vscode-textlint"
 			]
 		}
 	},
-	// "workspaceMount": "source=${localWorkspaceFolder},target=/workdir,type=bind",
-    "service": "LaTeX",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workdir,type=bind",
 	"workspaceFolder": "/workdir",
-	"shutdownAction": "stopCompose"
+	"postCreateCommand": "sh ./bin/install_textlint.sh",
+	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
