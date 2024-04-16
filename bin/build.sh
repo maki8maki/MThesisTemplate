@@ -11,5 +11,5 @@ FILES=(
     summary
 )
 for file in $FILES;do
-    latexmk file
+    latexmk $file
 done
