@@ -13,8 +13,8 @@ on:
 env:
   # MakefileでDockerを使う機能を無効にする
   USE_DOCKER: no
-  # 生成するファイルの名前。
-  ARTIFACT_NAME: main.pdf
+  # ビルドされるファイルの名前。
+  BUILT_FILE: [main, summary]
 
 # 実行されるジョブの定義
 jobs:
@@ -40,7 +40,7 @@ jobs:
 
       # 実際のビルドは `bin/build.sh` を実行している
       - name: Build
-        run: ./bin/build.sh
+        run: ./bin/build.sh ${{ env.BUILT_FILE }}
 
       # 生成したPDFをGitHub Actionsにアップロードする
       - name: Upload artifact
@@ -48,7 +48,7 @@ jobs:
         with:
           name: pdf
           # アップロードするファイルを変更する場合、以下を変える
-          path: /workdir/out/${{ env.ARTIFACT_NAME }}
+          path: /workdir/out/*.pdf
 
   # GitHubのReleaseを作成するジョブ
   # v1.0.0のようなタグがpushされた時のみ実行
@@ -68,9 +68,7 @@ jobs:
 
       # Releaseを作成する
       # https://github.com/YOURNAME/YOURREPO/releases に 'Release タグ名' で作成
-      - name: Create release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          VERSION=$(echo ${{ github.ref }} | sed -e "s#refs/tags/##g")
-          gh release create ${VERSION} -t "${VERSION}" ./${{ env.ARTIFACT_NAME }}
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ./*.pdf

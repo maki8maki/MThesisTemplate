@@ -1,9 +1,12 @@
 #!/bin/bash
 
 if [ ! -z "$GITHUB_ACTIONS" ]; then
-    cp /workdir/.devcontainer/.latexmkrc $HOME/
+    cp /workdir/.latexmkrc $HOME/
     mkdir /workdir/out
     mkdir /workdir/out/sections
 fi
 
-latexmk main.tex
+FILES=("$@")
+for file in $FILES;do
+    latexmk file
+done
