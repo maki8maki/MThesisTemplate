@@ -146,7 +146,7 @@
 * bin/
   * シェルファイルを格納したディレクトリ
   * build.sh
-    * github上にmain.pdfを保存するためのコンパイルに利用する
+    * github上にmain.pdfとsummary.pdfを保存するためのコンパイルに利用する
   * compile.sh
     * 通常のコンパイルに利用する
   * diff.sh
