@@ -1,6 +1,6 @@
 name: Auto Approve
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
       - reopened
@@ -15,6 +15,7 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: hmarr/auto-approve-action@v3
+      - uses: hmarr/auto-approve-action@v4
         with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
+            review-message: "Auto approved automated PR"
