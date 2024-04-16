@@ -10,6 +10,6 @@ FILES=(
     main
     summary
 )
-for file in $FILES;do
+for file in "${FILES[@]}"; do
     latexmk $file
 done
