@@ -13,8 +13,6 @@ on:
 env:
   # MakefileでDockerを使う機能を無効にする
   USE_DOCKER: no
-  # ビルドされるファイルの名前。
-  BUILT_FILE: [main, summary]
 
 # 実行されるジョブの定義
 jobs:
@@ -40,7 +38,7 @@ jobs:
 
       # 実際のビルドは `bin/build.sh` を実行している
       - name: Build
-        run: ./bin/build.sh ${{ env.BUILT_FILE }}
+        run: ./bin/build.sh
 
       # 生成したPDFをGitHub Actionsにアップロードする
       - name: Upload artifact
