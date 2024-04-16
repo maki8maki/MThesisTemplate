@@ -6,7 +6,10 @@ if [ ! -z "$GITHUB_ACTIONS" ]; then
     mkdir /workdir/out/sections
 fi
 
-FILES=("$@")
+FILES=(
+    main
+    summary
+)
 for file in $FILES;do
     latexmk file
 done
