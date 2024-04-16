@@ -140,5 +140,10 @@
     "latex-workshop.message.latexlog.exclude": [
         "Japanese fonts will be scaled",
         "*addjfontfeature*",
-      ],
+    ],
+    "textlint.configPath": "/wokdir/.textlintrc",
+    "textlint.languages": [
+        "tex",
+        "latex"
+    ],
 }
