@@ -1,6 +1,6 @@
 \ProvidesClass{/workdir/classes/summary}[2023/01/05 summary]
 
-\LoadClass[twocolumn, 9pt]{ltjsarticle}
+\LoadClass[twocolumn, 9pt, a4paper]{ltjsarticle}
 
 \usepackage{silence}
 \WarningFilter{caption}{Unknown document}
