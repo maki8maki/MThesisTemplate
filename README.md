@@ -86,6 +86,13 @@
 ### 文章の校正
 
 * 普段はdevブランチ等で文章を書き，masterブランチにPull Requestを出すと文章がおかしいところなどを指摘してくれる
+  * → ローカルでも校正してくれるように変更
+
+* .texlintrcに文章校正の設定が書かれている
+  * [ここ](https://github.com/textlint-ja/textlint-rule-preset-ja-technical-writing)を参考にすると良い
+  * `% textlint-disable`と`% textlint-disable`で囲んだ部分は校正が適用されないので，どうしても許容してほしい場所があれば利用する
+    * この場合は全てのルールが適用されなくなるので注意する
+    * `% textlint-disable`や`% textlint-disable`の後に`ja-technical-writing/ja-no-mixed-period`などのルール名を続けると該当するルールのみ適用されなくなるため，こちらの使用を推奨する
 
 * prh.ymlファイルを編集し，表記ゆれ（サーバとサーバーなど）の検知を自分で設定できる
 
@@ -95,7 +102,6 @@
 
 ### PDFとコードの保存
 
-* masterへpushしたときにgithub上でmain.pdfが一定期間保存される
 * vから始まるタグをつけてpushしたときにmain.pdfとソースコードの圧縮ファイルがrelaseの形でgithub上に保存される
   * 1/nモデルの提出時などに保存すると良い
 
