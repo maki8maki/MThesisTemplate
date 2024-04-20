@@ -11,6 +11,7 @@
 % \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{siunitx}
+\sisetup{detect-all} % その場のフォントに合わせる
 % \usepackage{caption}
 % \usepackage[subrefformat=parens]{subcaption}
 % \captionsetup{compatibility=false, labelsep=quad}
