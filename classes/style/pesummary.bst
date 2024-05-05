@@ -1147,14 +1147,14 @@ FUNCTION {bst.thebibliography.begin}
 {
   "" write$ newline$
   "\makeatletter\@ifundefined{ifNAT@openbib}{\@latex@error{Package 'natbib' is not loaded! Please load Package 'natbib' in your preamble.\MessageBreak Additionally, if you use url field in your bib record entry, please also load Package 'hyperref' or 'pxjahyper', 'url' package.}\@ehc}{}\relax\makeatother" write$ newline$
-  "\begin{thebibliography}{xxx}" write$ newline$
+  "\begin{mythebibliography}{9}" write$ newline$ % 文献数に合わせて変更する
   "" write$ newline$
 }
 
 FUNCTION {bst.thebibliography.end}
 {
   "" write$ newline$
-  "\end{thebibliography}" write$ newline$
+  "\end{mythebibliography}" write$ newline$
   "" write$ newline$
 }
 

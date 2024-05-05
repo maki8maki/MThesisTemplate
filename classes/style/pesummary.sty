@@ -1,18 +1,20 @@
 % pesummary.sty
 \typeout{pesummary.sty - Thu, Jan 5 2023 by Yuki Yamaguchi}
 
-\usepackage[top=22truemm, bottom=22truemm, right=19truemm, left=19truemm]{geometry} % ページの余白の設定
 \usepackage[runin]{abstract}
 
 \pagestyle{empty}
 
 % 図に関する余白の設定
 \setlength\floatsep{2truemm} % 図と図の間の余白
-\setlength\intextsep{0pt} % 本文中の図の余白
-\setlength\textfloatsep{0pt} % 本文と図の間の余白
-\setlength\abovecaptionskip{0pt} % 図とキャプションの間の余白
+\setlength\intextsep{2pt} % 本文中の図の余白
+\setlength\textfloatsep{2pt} % 本文と図の間の余白
+\setlength\abovecaptionskip{2pt} % 図とキャプションの間の余白
 
 % タイトルの設定
+\usepackage{expl3}
+\ExplSyntaxOn
+
 \def\title#1{\gdef\@title{#1}}
 \def\etitle#1{\gdef\@etitle{#1}}
 \def\studentid#1{\gdef\@studentid{#1}}
@@ -20,21 +22,67 @@
 \def\supervisor#1{\gdef\@supervisor{#1}}
 \def\abst#1{\gdef\@abst{#1}}
 
+\tl_new:N \g__subtitle_tl
+\def\subtitle#1 {\tl_gset:Nn \g__subtitle_tl {#1}}
+\tl_new:N \g__esubtitle_tl
+\def\esubtitle#1 {\tl_gset:Nn \g__esubtitle_tl {#1}}
+
+\newlength{\abstspace}
+\setlength{\abstspace}{3\zw}
+
 \renewcommand{\abstractname}{Abstract}
+\renewenvironment{abstract}{%
+  \list{}{
+      \setlength{\leftmargin}{\abstspace}%
+      \setlength{\rightmargin}{\abstspace}%
+  }%
+  \item\relax
+  \abstractname
+}{
+  \endlist
+}
 
 \renewcommand{\maketitle}{
   \twocolumn[
   \begin{center}
-      {\Large \textbf{\@title}}\\
+    {\large \vspace*{\zh}}
+    {\Large \textbf{\@title}\par}
+    \tl_if_empty:NF \g__subtitle_tl {
       \vspace{2mm}
-      {\large \@etitle}
+      {\large \g__subtitle_tl\par}
+    }
+    \vspace{2mm}
+    {\large \@etitle\par}
+    \tl_if_empty:NF \g__esubtitle_tl {
+      \vspace{1mm}
+      {\large \g__esubtitle_tl\par}
+    }
   \end{center}
   \begin{flushright}
-      \@studentid \@author\\
-      指導教員 \@supervisor
+    \@studentid \@author\hspace*{\abstspace}\par
+    指導教員 \@supervisor\hspace*{\abstspace}\par
   \end{flushright}
   \begin{abstract}
-      \@abst
+    \@abst
   \end{abstract}
   ]
 }
+
+\ExplSyntaxOff
+
+% 参考文献の設定
+% natbib.styを参考に作成
+\def\mythebibliography#1{
+  \bibsection*{\refname}
+  \list{
+    \@biblabel{\arabic{enumi}}\hspace{0.5em}
+  }{
+    \@bibsetup{#1}
+    \usecounter{enumi}
+  }
+  \sloppy\clubpenalty4000\widowpenalty4000
+  \sfcode`\.=1000\relax
+  \let\citeN\cite \let\shortcite\cite
+  \let\citeasnoun\cite
+}
+\let\endmythebibliography=\endlist
