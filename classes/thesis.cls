@@ -30,11 +30,11 @@
 \usepackage[unicode=true]{hyperref} % ハイパーリンクの作成
 \urlstyle{same} % 地の文とurlのフォントを同じにする
 \hypersetup{ % hyperrefパッケージのオプション設定
-setpagesize=false, % ページサイズが変わってしまうのを防ぐ
-colorlinks=true, % リンクに色を付ける
-urlcolor=black, % 外部参照は黒（＝地の文と同じ）
-linkcolor=black, % 内部参照は黒（＝地の文と同じ）
-citecolor=black % 文献参照は黒（＝地の文と同じ）
+  setpagesize=false, % ページサイズが変わってしまうのを防ぐ
+  colorlinks=true, % リンクに色を付ける
+  urlcolor=black, % 外部参照は黒（＝地の文と同じ）
+  linkcolor=black, % 内部参照は黒（＝地の文と同じ）
+  citecolor=black % 文献参照は黒（＝地の文と同じ）
 }
 
 % フォントの設定
