@@ -25,32 +25,30 @@
 
 \renewcommand\maketitle{
 	\thispagestyle{empty}
-  \fancypage{\setlength{\fboxrule}{1.8truemm}\fbox}{}
 
 	\begin{center}
-		\vspace*{15truemm}
-		{\textbf \@thesistype}\\
-		\vspace*{5truemm}
+		\vskip1.8\baselineskip
+		\@thesistype\\
+		\vspace*{3truemm}
 		\includegraphics[width=45truemm]{figures/utlogo.pdf}\\
-		\vspace*{20truemm}
+		\vspace*{2\zh}
 
-		{\textbf{\LARGE \@title}}\\
-		\vspace*{10truemm}
+		% 空白の大きさはタイトルの行数に応じて調整
+		{\huge \@title}\\
+		{\large \vskip\baselineskip}
 		{\Large \@etitle}\\
-		\vspace*{40truemm}
+		\vskip12\baselineskip
 
-		{\Large 指導教員 \quad \@supervisor}\\
-		\vspace*{20truemm}
+		{\Large 指導教員 \@supervisor}\\
+		\vskip2\baselineskip
 
 		{\large \@affiliation}\\
-		\vspace*{8truemm}
 		{\large 学生証番号\@studentid} \\
-		\vspace*{10truemm}
+		\vskip\baselineskip
 		{\LARGE  \@author}
 		\vfill
 	\end{center}
 	\newpage
-	\fancypage{}{}
 	\cleardoublepage
 }
 
@@ -73,7 +71,7 @@
 \renewcommand{\chapter}{%
   \if@openright\cleardoublepage\else\clearpage\fi
     \global\@topnum\z@
-  \if@english \@afterindentfalse \else \@afterindenttrue \fi
+  \if@english\@afterindentfalse\else\@afterindenttrue\fi
   \secdef\@chapter\@schapter
 }
 \makeatother
