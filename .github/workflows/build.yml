@@ -1,10 +1,12 @@
 # PDFのビルドを行うworkflow
 name: build
 
-# vから始まるタグに対して実行
+# masterブランチへのpush、またはvから始まるタグに対して実行
 # 例えばv1.0.0など
 on:
   push:
+    branches:
+      - master
     tags:
       - "v*"
 
@@ -38,9 +40,18 @@ jobs:
       - name: Build
         run: ./bin/build.sh
 
+      # 生成したPDFをGitHub Actionsにアップロードする
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf
+          # アップロードするファイルを変更する場合、以下を変える
+          path: /workdir/out/*.pdf
+
       # Releaseを作成する
       # https://github.com/YOURNAME/YOURREPO/releases に 'Release タグ名' で作成
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           files: /workdir/out/*.pdf
+        if: startsWith(github.ref, 'refs/tags/')
