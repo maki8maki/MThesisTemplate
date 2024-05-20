@@ -89,8 +89,8 @@ ENTRY
 % \bysame とは、参考文献部分同じ著者名が連続するときに --- で省略するもの。
 %
 FUNCTION {bst.use.bysame}
-% { #0 }    % Not use \bysame
-{ #1 }	  % -> Use \bysame (default)
+{ #0 }    % Not use \bysame
+% { #1 }	  % -> Use \bysame (default)
 % { #2 }    % -> Use \bysame of alternative style.
 
 % \bysame の定義。\bysame を使ったときの横棒の形式を変えるには以下の定義を修正
