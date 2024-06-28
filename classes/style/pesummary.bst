@@ -2922,8 +2922,8 @@ FUNCTION {format.pages}
 	 if$
 	}
 	{ pages multi.page.check
-	  { bst.pages.pre pages n.dashify tie.or.space.connect * bst.pages.post }
-	  { bst.page.pre pages tie.or.space.connect * bst.page.post }
+	  { bst.pages.pre pages * n.dashify * bst.pages.post }
+	  { bst.page.pre pages * bst.page.post }
 	 if$
 	}
        if$
