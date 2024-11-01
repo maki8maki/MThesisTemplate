@@ -37,6 +37,10 @@
   citecolor=black % 文献参照は黒（＝地の文と同じ）
 }
 
+% 参考文献表示で途中で改ページされることを避ける
+\usepackage{etoolbox}
+\apptocmd{\mythebibliography}{\interlinepenalty=10000}{}{}
+
 % フォントの設定
 \usepackage[haranoaji,deluxe,scale=1]{luatexja-preset}
 \setmainfont[BoldFont=TeXGyreTermes-Bold,ItalicFont=TeXGyreTermes-Italic,Ligatures=TeX]{TeXGyreTermes}
