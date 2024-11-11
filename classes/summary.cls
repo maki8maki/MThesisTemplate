@@ -5,7 +5,7 @@
   column_gap=3zw,
   article,
   paper=a4,
-  fontsize=8.5pt,
+  fontsize=9pt,
   baselineskip=1.2zh, % 見た目で合うように微調整した結果
   disablejfam,
   head_space=22truemm,
