@@ -20,6 +20,7 @@
 \def\author#1{\gdef\@author{#1}}
 \def\supervisor#1{\gdef\@supervisor{#1}}
 \def\abst#1{\gdef\@abst{#1}}
+\def\kwd#1{\gdef\@kwd{#1}}
 
 \renewcommand{\abstractname}{}
 \renewcommand{\abstracttextfont}{\normalfont}
@@ -37,8 +38,10 @@
     }
   \end{flushright}
   \begin{abstract}
-    \@abst \vskip\baselineskip
+    \@abst \par
+    Key\ words:\ \@kwd
   \end{abstract}
+  \vskip\baselineskip
   ]
 }
 
