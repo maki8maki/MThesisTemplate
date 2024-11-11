@@ -17,7 +17,7 @@
 	},
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workdir,type=bind",
 	"workspaceFolder": "/workdir",
-	"postCreateCommand": "sh ./bin/install_textlint.sh",
+	"postCreateCommand": "sh ./bin/install_textlint.sh && sh ./bin/install_others.sh",
 	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
 	"remoteUser": "root"
 
