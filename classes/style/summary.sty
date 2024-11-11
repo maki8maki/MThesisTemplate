@@ -1,0 +1,53 @@
+% pesummary.sty
+\typeout{summary.sty - Thu, Jan 5 2023 by Yuki Yamaguchi}
+
+\usepackage[runin]{abstract}
+
+% タイトルの設定
+\def\title#1{\gdef\@title{#1}}
+\def\studentid#1{\gdef\@studentid{#1}}
+\def\author#1{\gdef\@author{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\abst#1{\gdef\@abst{#1}}
+\def\kwd#1{\gdef\@kwd{#1}}
+
+\renewcommand{\abstractname}{}
+\renewcommand{\abstracttextfont}{\normalfont}
+
+\renewcommand{\maketitle}{
+  \twocolumn[
+  \begin{center}
+    {\Large \textgt{\@title} \vskip0.5\baselineskip}
+  \end{center}
+  \begin{flushright}
+    {
+      \large
+      \@studentid \hspace*{\zh} \@author\\
+      指導教員 \hspace*{\zh} \@supervisor\\
+    }
+  \end{flushright}
+  \begin{abstract}
+    \@abst \par
+    Key\ words:\ \@kwd
+  \end{abstract}
+  \vskip\baselineskip
+  ]
+}
+
+% 参考文献の設定
+% natbib.styを参考に作成
+\renewcommand{\refname}{文献}
+\def\mythebibliography#1{
+  \bibsection*{\refname}
+  \list{
+    \@biblabel{\arabic{enumi}}\hspace{0.5em}
+  }{
+    \@bibsetup{#1}
+    \usecounter{enumi}
+  }
+  \sloppy\clubpenalty4000\widowpenalty4000
+  \sfcode`\.=1000\relax
+  \let\citeN\cite \let\shortcite\cite
+  \let\citeasnoun\cite
+}
+\let\endmythebibliography=\endlist

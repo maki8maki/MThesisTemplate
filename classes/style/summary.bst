@@ -1,6 +1,4 @@
-% pethesis.bst: 精密工学科卒論の BibTeX スタイルファイル，jecon.bstを改良して作成
-% 元のjecon.bstはnatbibパッケージが必要だが，pethesis.bstでは使用しない
-
+% summary.bst: 人間環境学専攻修論要旨の BibTeX スタイルファイル，jecon.bstを改良して作成
 %% jecon.bst: 経済学用 BibTeX スタイルファイル（BibTeX style file for economics）
 %
 % Author: Shiro Takeda (武田史郎)
@@ -157,7 +155,7 @@ FUNCTION {bst.first.name.initial}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Title の先頭文字以外を小文字に変換する (book の title は除く。元々小文
+% Title の先頭文字以外を小文字に変換する (book の tile は除く。元々小文
 % 字ならなにも変わらない)。
 %
 FUNCTION {bst.title.lower.case}
@@ -198,13 +196,6 @@ FUNCTION {bst.hide.month}
 FUNCTION {bst.hide.number}
 { #0 }	  % #0 -> 表示する．普通はこちら． (default)
 % { #1 }    % #0 以外 -> 隠す (表示しない)
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% これの値に 0 以外を指定すると，reference 部分で文献の前に（[Zenn 1999]のように）author-yearをつけられる
-FUNCTION {bst.use.reference.authoryear}
-{ #0 }	  % #0 -> 利用する．精密工学科はこちら． (default)
-% { #1 }    % #0 以外 -> 利用しない
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -282,7 +273,7 @@ FUNCTION {bst.kansuji.jp}
 %
 % 縦書きの表示を指定しているときでも - は横棒のまま表示されます．これを縦棒に
 % 表示するための指定です．
-
+%
 FUNCTION {bst.tatebo.definition}
 { "\hskip.1em \leavevmode\rule[0ex]{1em}{.3pt}\hskip0.1em" }	% (default)
 
@@ -302,7 +293,7 @@ FUNCTION {bst.tatebo.definition}
 % #3 -> year は volume の後に表示されます。
 %
 FUNCTION {bst.year.position}
-% { #0 }	  % author のすぐ後 (default).
+% { #0 }	  % autho のすぐ後 (default).
 { #1 }    % 最後（note の前）
 % { #2 }    % journal name の後（article entryのみ）
 % { #3 }    % volume の後（article entryのみ）
@@ -334,8 +325,8 @@ FUNCTION {bst.sort.year}
 % と一緒に利用すると表示がおかしくなるケースあり．
 %
 FUNCTION {bst.no.sort}
-{ #0 }	  % 文献の順番を普通にソートする．(default)
-% { #1 }    % 引用順に並べる．
+% { #0 }	  % 文献の順番を普通にソートする．(default)
+{ #1 }    % 引用順に並べる．
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -422,16 +413,16 @@ FUNCTION {bst.cite.ands}
 % 引用部分の "A氏 _ B氏 _ C氏" の "_" の部分に入る文字列
 %
 FUNCTION {bst.cite.and.jp}
-% { "・" }    % (default)
-{ ", " }
+{ "・" }    % (default)
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % 何人以上の著者がいるときに引用部分で et al.で省略するか。3人以上のとき
 % に略すときは #3 を指定。
 FUNCTION {bst.and.others.num}
-% { #3 }	  % 3人以上なら省略する。(default)
-{ #2 }
+{ #3 }	  % 3人以上なら省略する。(default)
+% { #4 }
 
 % 著者数がある値より大きい場合には、参考文献部分で著者の一部の名前しか表示されな
 % い。具体的には、著者数が N1 より大きい場合には、著者の中の最初の N2 人の名前だ
@@ -453,14 +444,12 @@ FUNCTION {bst.max.author.num.display}
 %%% 英語用
 %
 FUNCTION {bst.and.others}
-% { " et~al." }	 % (default)
-{ "" }
+{ " et~al." }	 % (default)
 
 %%% 日本語用
 %
 FUNCTION {bst.and.others.jp}
-% { "他" }    % (default)
-{ "" }
+{ "他" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	author
@@ -588,12 +577,13 @@ FUNCTION {bst.book.post.jp}
 % booktitle の前に付ける文字列 (英語文献用)
 %
 FUNCTION {bst.btitle.pre}
-{ " \textit{ " }    % (default)
+% { " \textit{ " }    % (default)
+{ " " }
 
 % booktitle の後に付ける文字列 (英語文献用)
 %
 FUNCTION {bst.btitle.post}
-{ "}" }	   % (default)
+{ "" }	   % (default)
 
 % booktitle の前に付ける文字列 (日本語文献用)
 %
@@ -613,12 +603,13 @@ FUNCTION {bst.btitle.post.jp}
 % journal name の前に付ける文字列 (英語文献用)
 %
 FUNCTION {bst.journal.pre}
-{ " \textit{" }    % (default)
+% { " \textit{ " }    % (default)
+{ " " }
 
 % journal name の後に付ける文字列 (英語文献用)
 %
 FUNCTION {bst.journal.post}
-{ "}" }   % (default)
+{ "" }	   % (default)
 
 % journal name の前に付ける文字列 (日本語文献用)
 %
@@ -706,7 +697,7 @@ FUNCTION {bst.edition.post.jp}
 %
 FUNCTION {bst.volume.pre}
 % { ", Vol. " }	 % (default)
-{ ", Vol.~" }
+{ ", " }
 
 % volume の後に付ける文字列 (英語文献用)
 %
@@ -717,7 +708,7 @@ FUNCTION {bst.volume.post}
 %
 FUNCTION {bst.volume.pre.jp}
 % { "，第" }    % (default)
-{ ", Vol.~" }
+{ ", " }
 
 % volume の後に付ける文字列 (日本語文献用)
 %
@@ -732,24 +723,25 @@ FUNCTION {bst.volume.post.jp}
 %
 FUNCTION {bst.number.pre}
 % { ", No. " }	% (default)
-{ ", No.~" }
+{ " (" }
 
 % number の後に付ける文字列 (英語文献用)
 %
 FUNCTION {bst.number.post}
-{ "" }	  % (default)
+% { "" }	  % (default)
+{ ")" }
 
 % number の前に付ける文字列 (日本語文献用)
 %
 FUNCTION {bst.number.pre.jp}
 % { "，第" }    % (default)
-{ ", No.~" }
+{ " (" }
 
 % number の後に付ける文字列 (日本語文献用)
 %
 FUNCTION {bst.number.post.jp}
 % { "号" }    % (default)
-{ "" }
+{ ")" }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	in
@@ -1035,8 +1027,7 @@ FUNCTION {bst.url.post}
 % URLの前に付ける文字列 (日本語文献用)
 %
 FUNCTION {bst.url.pre.jp}
-% { "，URL：\url{" }	% (default)
-{ ", \url{" }
+{ "，URL：\url{" }	% (default)
 
 % URLの後に付ける文字列 (日本語文献用)
 %
@@ -1143,8 +1134,8 @@ FUNCTION {bst.dashify.off}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% 非ゼロを指定すると \bibitem を出力しない．
-FUNCTION {bst.bibitem.off}
+% 非ゼロを指定すると \harvarditem を出力しない．
+FUNCTION {bst.harvarditem.off}
 { #0 }	  % (default)
 % { #1 }
 
@@ -1156,14 +1147,16 @@ FUNCTION {bst.bibitem.off}
 FUNCTION {bst.thebibliography.begin}
 {
   "" write$ newline$
-  "\begin{mythebibliography}{xxx}" write$ newline$
+  "\makeatletter\@ifundefined{ifNAT@openbib}{\@latex@error{Package 'natbib' is not loaded! Please load Package 'natbib' in your preamble.\MessageBreak Additionally, if you use url field in your bib record entry, please also load Package 'hyperref' or 'pxjahyper', 'url' package.}\@ehc}{}\relax\makeatother" write$ newline$
+  "\begin{mythebibliography}{9}" write$ newline$ % 文献数に合わせて変更する
+  "" write$ newline$
 }
 
 FUNCTION {bst.thebibliography.end}
 {
-  newline$
+  "" write$ newline$
   "\end{mythebibliography}" write$ newline$
-  "\clearpage\newpage" write$ newline$
+  "" write$ newline$
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1600,6 +1593,18 @@ FUNCTION {output.check.nocomma}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% bbl ファイルへの出力の形式
+
+% \harvarditem[Brezis et~al.]{Brezis, Krugman and
+%   Tsiddon}{1993}{brezis93:_leapf_inter_compet}
+% Brezis, Elise~S., Paul~R. Krugman, and Daniel Tsiddon	 (1993) ``Leapfrogging in
+%   International Competition: A Theory of Cycles in National Technological
+%   Leadership.'', {\em American Economic Review.}, Vol.~83. No.~5. pp.
+%   1211--1219.
+
+% \harvarditem[abbreviated citation]{full citation}{year}{keyword} ...
+%
+% という形式で出力する。
 
 %%% period を付けて、改行する。
 FUNCTION {fin.entry}
@@ -1608,7 +1613,6 @@ FUNCTION {fin.entry}
     { add.period.x }
   if$
   write$
-  "\\" write$
   newline$
 }
 
@@ -2087,27 +2091,29 @@ FUNCTION {format.authors}
 { author empty$
     { "" }
     { bst.use.bysame #2 =
-	      % 2 のタイプの bysame を利用するとき。
-	      { prev.author.jecon author compare.names.jecon 's :=
-	        jecon.debug #0 = not % for debug
-	            { "prev.author.jecon = \texttt{" prev.author.jecon * "}\\" * write$
-	              "\noindent s = \texttt{" s * "}\\" * write$
-	            }
-	            'skip$
-	        if$
-	        % prev.author.jecon に現在の author を代入しておく
-	        author 'prev.author.jecon :=
-	      }
-	      % bysame を利用しないか、1 のタイプの bysame を利用するときは author を
-	      % s に代入。
-	      { author 's := }
+	% 2 のタイプの bysame を利用するとき。
+	{ prev.author.jecon author compare.names.jecon 's :=
+
+	  jecon.debug #0 = not % for debug
+	    { "prev.author.jecon = \texttt{" prev.author.jecon * "}\\" * write$
+	      "\noindent s = \texttt{" s * "}\\" * write$
+	    }
+	    'skip$
+	  if$
+
+	  % prev.author.jecon に現在の author を代入しておく
+	  author 'prev.author.jecon :=
+	}
+	% bysame を利用しないか、1 のタイプの bysame を利用するときは author を
+	% s に代入。
+	{ author 's := }
       if$
       % extra.label.bysame に bysame という値が入っているか？
       extra.label.bysame "bysame" =
-	      % Yes なら bysame を挿入。
-	      { author insert.bysame }
-	      % No なら ? を返す。
-	      { author s remove.ss.period.auth }
+	% Yes なら bysame を挿入。
+	{ author insert.bysame }
+	% No なら ? を返す。
+	{ author s remove.ss.period.auth }
       if$
     }
   if$
@@ -3413,17 +3419,17 @@ FUNCTION {output.number.index}
        "" 'preone :=
        "" 'preten :=
        bst.number.index.digit "1" =
-	 		'skip$
-	 		{ bst.number.index.digit "2" =
-	   			{ "\hskip0.5em" 'preone := }
-	   			{ bst.number.index.digit "3" =
-	      			{ "\hskip1em" 'preone :=
-					  "\hskip0.5em" 'preten := }
-	      			'skip$
-	     		  if$
-	   			}
-	 		  if$
-	 		}
+	 'skip$
+	 { bst.number.index.digit "2" =
+	   { "\hskip0.5em" 'preone := }
+	   { bst.number.index.digit "3" =
+	      { "\hskip1em" 'preone :=
+		"\hskip0.5em" 'preten := }
+	      'skip$
+	     if$
+	   }
+	 if$
+	 }
        if$
      }
   if$
@@ -3434,36 +3440,40 @@ FUNCTION {output.number.index}
      'skip$
      { index #10 <
 	 % number index の桁に応じて前に空白を入れる。
-	 	{ preone }
-	 	{ index #100 <
-	     	{ preten }
-	     	{ "" }
-	   	  if$
-	 	}
-       	if$
-       	bst.number.index.pre * index int.to.str$ * bst.number.index.post * write$
+	 { preone }
+	 { index #100 <
+	     { preten }
+	     { "" }
+	   if$
+	 }
+       if$
+       bst.number.index.pre * index int.to.str$ * bst.number.index.post * write$
      }
  if$
 }
 
 FUNCTION {output.bibitem}
-{ bst.bibitem.off
+{ bst.harvarditem.off
     { before.all 'output.state :=
-    "" }
+      "" }
     { newline$
-      "\bibitem[\mbox{" alabel * " " * write$ % alabel が abbreviated citation
+      "\harvarditem[" write$
+      alabel write$			% alabel が abbreviated citation
+      "]{" write$
+      flabel write$			% flabel が full citation
+      "}{" write$
       is.kanji.entry
-	      { cyear convert.year.kanji write$ }	% cyear が year
-	      { cyear write$ }
+	 { cyear convert.year.kanji write$ }	% cyear が year
+	 { cyear write$ }
       if$
-      "}]{" cite$ *  "}\leavevmode \\" * write$			% cite$ で keyword がプッシュされる。
+      % cyear が year
+      "}{" write$
+      cite$ write$			% cite$ で keyword がプッシュされる。
+      "}" write$
       before.all 'output.state :=
 
-	    % 以下は、reference表示の処理
-	    bst.use.reference.authoryear #0 =
-	      { newline$ "" }
-	      { output.number.index }
-	    if$
+      % 以下は、number index を付ける場合の処理
+      output.number.index
     }
   if$
 }

@@ -5,7 +5,7 @@
 \usepackage{silence}
 \WarningFilter{caption}{Unknown document}
 
-\usepackage{pethesis}
+\usepackage{thesis}
 \usepackage{amsmath,amssymb,bm}
 \usepackage{minitoc}
 \usepackage{booktabs}
@@ -23,9 +23,6 @@
 \usepackage{csvsimple-l3} % csvファイルから表を作成する
 \usepackage{midpage} % 図表をページ中央に配置する
 \usepackage[numbers]{natbib} % \citeにハイパーリンクをつけるためのおまじない
-\usepackage{multibib} % 参考文献をわけて表示する
-\newcites{ja}{a} % 第2引数は使用しないので適当
-\newcites{en}{b} % 第2引数は使用しないので適当
 \usepackage{subfiles} % 分割コンパイルを可能にする
 \usepackage[unicode=true]{hyperref} % ハイパーリンクの作成
 \urlstyle{same} % 地の文とurlのフォントを同じにする

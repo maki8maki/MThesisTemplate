@@ -2,24 +2,25 @@
 
 \LoadClass[
   twocolumn,
-  column_gap=3zw,
+  column_gap=8truemm,
   article,
   paper=a4,
-  fontsize=8.5pt,
-  baselineskip=1.2zh, % 見た目で合うように微調整した結果
+  fontsize=9pt,
+  baselineskip=12.7pt,
   disablejfam,
-  head_space=22truemm,
-  foot_space=22truemm,
-  gutter=19truemm,
-  fore-edge=19truemm
+  head_space=20truemm,
+  foot_space=20truemm,
+  gutter=20truemm,
+  fore-edge=20truemm
 ]{jlreq}
 
 \usepackage{silence}
 \WarningFilter{caption}{Unknown document}
 
-\usepackage{pesummary}
-\usepackage[numbers]{natbib}
-\renewcommand{\bibnumfmt}[1]{[#1]\hspace{0.5em}} % 番号の後に少し空白を入れる
+\usepackage{summary}
+\usepackage[sort&compress]{natbib}
+\setcitestyle{numbers,super,open={},close={)},comma}
+\renewcommand{\bibnumfmt}[1]{#1)\hspace{\zw}} % 番号の後に少し空白を入れる
 \usepackage{amsmath, mathtools}
 \usepackage{booktabs}
 \usepackage{graphicx}
@@ -37,33 +38,51 @@
 % citecolor=black % 文献参照は黒（＝地の文と同じ）
 % }
 
+% ページスタイル
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\fancypagestyle{mypagestyle}{%
+  \lhead{}
+  \rhead{\thepage/\pageref{LastPage}}
+  \cfoot{}
+  \renewcommand{\headrulewidth}{0.0pt}
+}
+
 % section, subsectionの設定
 \RenewBlockHeading{section}{1}{%
-  font={\normalfont},
-  label_format={\thesection.},
-  format={\jlreqHeadingLabel{#1}\ \hspace{-1\zw}\jlreqHeadingText{#2}},
+  font={\gtfamily\large},
+  label_format={\thesection},
+  format={\jlreqHeadingLabel{#1}\ \hspace{-0.7\zw}\jlreqHeadingText{#2}},
   lines=1,
-  before_lines=1,
-  align=left
+  before_lines=0.5,
+  after_lines=0.5,
+  align=center
 }
 \RenewBlockHeading{subsection}{2}{%
-  font={\normalfont},
+  font={\gtfamily},
   label_format={\thesubsection},
-  format={\jlreqHeadingLabel{#1}\ \hspace{-1\zw}\jlreqHeadingText{#2}},
+  format={\jlreqHeadingLabel{#1}\ \hspace{-0.7\zw}\jlreqHeadingText{#2}},
   lines=1,
-  before_lines=1,
+  before_lines=0.2,
+  after_lines=0.2,
+  align=left
+}
+\RenewBlockHeading{subsubsection}{3}{%
+  font={\gtfamily},
+  label_format={\thesubsubsection},
+  format={\jlreqHeadingLabel{#1}\ \hspace{-0.7\zw}\jlreqHeadingText{#2}},
+  lines=1,
+  before_lines=0.2,
+  after_lines=0.2,
   align=left
 }
 \RenewBlockHeading{bibsection}{1}{%
-  font={\normalfont},
+  font={\gtfamily},
   format={\jlreqHeadingText{#2}},
   lines=1,
-  before_lines=1,
+  before_lines=0.5,
+  after_lines=0.2,
   align=left
-}
-
-\SetBlockHeadingSpaces{
-  {_section{before_lines=1},_subsection{lines=1}}
 }
 
 % フォントの設定
@@ -72,6 +91,9 @@
 \setsansfont[BoldFont=TeXGyreHeros-Bold,ItalicFont=TeXGyreHeros-Italic,Ligatures=TeX]{TeXGyreHeros}
 \usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
 \setmathfont{TeX Gyre Termes Math}
+
+\renewcommand{\figurename}{Fig.\ }
+\renewcommand{\tablename}{Table\ }
 
 \newcommand{\reffig}[1]{図\ref{#1}}
 % \newcommand{\refsubfig}[1]{\subref{#1}}
