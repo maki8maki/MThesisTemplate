@@ -1,4 +1,4 @@
-% pesummary.bst: 精密工学科卒論要旨の BibTeX スタイルファイル，jecon.bstを改良して作成
+% summary.bst: 人間環境学専攻修論要旨の BibTeX スタイルファイル，jecon.bstを改良して作成
 %% jecon.bst: 経済学用 BibTeX スタイルファイル（BibTeX style file for economics）
 %
 % Author: Shiro Takeda (武田史郎)
@@ -578,12 +578,12 @@ FUNCTION {bst.book.post.jp}
 %
 FUNCTION {bst.btitle.pre}
 % { " \textit{ " }    % (default)
-{ " \textit{" }
+{ " " }
 
 % booktitle の後に付ける文字列 (英語文献用)
 %
 FUNCTION {bst.btitle.post}
-{ "}" }	   % (default)
+{ "" }	   % (default)
 
 % booktitle の前に付ける文字列 (日本語文献用)
 %
@@ -604,12 +604,12 @@ FUNCTION {bst.btitle.post.jp}
 %
 FUNCTION {bst.journal.pre}
 % { " \textit{ " }    % (default)
-{ " \textit{" }
+{ " " }
 
 % journal name の後に付ける文字列 (英語文献用)
 %
 FUNCTION {bst.journal.post}
-{ "}" }	   % (default)
+{ "" }	   % (default)
 
 % journal name の前に付ける文字列 (日本語文献用)
 %
@@ -697,7 +697,7 @@ FUNCTION {bst.edition.post.jp}
 %
 FUNCTION {bst.volume.pre}
 % { ", Vol. " }	 % (default)
-{ ", Vol.~" }
+{ ", " }
 
 % volume の後に付ける文字列 (英語文献用)
 %
@@ -708,7 +708,7 @@ FUNCTION {bst.volume.post}
 %
 FUNCTION {bst.volume.pre.jp}
 % { "，第" }    % (default)
-{ ", Vol.~" }
+{ ", " }
 
 % volume の後に付ける文字列 (日本語文献用)
 %
@@ -723,24 +723,25 @@ FUNCTION {bst.volume.post.jp}
 %
 FUNCTION {bst.number.pre}
 % { ", No. " }	% (default)
-{ ", No.~" }
+{ " (" }
 
 % number の後に付ける文字列 (英語文献用)
 %
 FUNCTION {bst.number.post}
-{ "" }	  % (default)
+% { "" }	  % (default)
+{ ")" }
 
 % number の前に付ける文字列 (日本語文献用)
 %
 FUNCTION {bst.number.pre.jp}
 % { "，第" }    % (default)
-{ ", No.~" }
+{ " (" }
 
 % number の後に付ける文字列 (日本語文献用)
 %
 FUNCTION {bst.number.post.jp}
 % { "号" }    % (default)
-{ "" }
+{ ")" }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	in

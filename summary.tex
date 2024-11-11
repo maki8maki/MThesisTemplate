@@ -18,11 +18,14 @@
 \begin{document}
 \maketitle
 
+\thispagestyle{mypagestyle}
+\pagestyle{mypagestyle}
+
 \section{序論}
 本文は2段組みとする．
 改行を入れて読みやすく書く．
 
-引用例は\cite{Schlick1994}\cite{Chikushi2020}このようになる．
+引用例はこのようになる\cite{Schlick1994,Chikushi2020,Sandmeier1999,Shirley1997}.
 
 本文は2段組みとする．
 本文は2段組みとする．
@@ -147,7 +150,7 @@
 \begin{figure}[tb]
   \centering
   \includegraphics[keepaspectratio, width=0.8\linewidth]{utlogo.pdf}
-  \caption{ロゴ}
+  \caption{Logo}
   \label{fig:logo}
 \end{figure}
 
@@ -211,37 +214,6 @@
 本文は2段組みとする．
 本文は2段組みとする．
 本文は2段組みとする．
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[keepaspectratio, width=0.5\linewidth]{chap1/cone_penetrometer.pdf}
-  \caption{コーンペネトロメータ}
-  \label{fig:cone_penetrometer}
-\end{figure}
-
-% textlint-disable
-\begin{table}[t]
-  \caption{走行に必要なコーン指数}
-  \label{tab:traffic_cone_index}
-  \centering
-  \begin{tabular}{cc}
-    \toprule
-    建設機械の種類                      & コーン指数[\si{\kN/\m^2}] \\
-    \midrule
-    超湿地ブルドーザー                    & 200以上                \\
-    湿地ブルドーザー                     & 300以上                \\
-    普通ブルドーザー（\SI{15}{\tonne}級程度） & 500以上                \\
-    普通ブルドーザー（\SI{21}{\tonne}級程度） & 700以上                \\
-    スクレープドーザ                     & 600以上                \\
-                                 & （超湿地型は400以上）         \\
-    被けん引式スクレーパ（小型）               & 700以上                \\
-    自走式スクレーパ（小型）                 & 1,000以上              \\
-    ダンプトラック                      & 1,200以上              \\
-    \bottomrule
-  \end{tabular}
-  \vspace{\zh}
-\end{table}
-% textlint-enable
 
 \section{検証実験}
 本文は2段組みとする．
