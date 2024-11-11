@@ -1,12 +1,12 @@
 # PDFのビルドを行うworkflow
 name: build
 
-# masterブランチへのpush、またはvから始まるタグに対して実行
+# mainブランチへのpush、またはvから始まるタグに対して実行
 # 例えばv1.0.0など
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - "v*"
 
