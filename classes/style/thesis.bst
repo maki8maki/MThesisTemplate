@@ -63,7 +63,7 @@ ENTRY
   %%% 文献フィールドの宣言
   { access address author booktitle chapter doi edition editor howpublished
     institution journal key month note number organization pages publisher
-    school series title type url volume year yomi language langid urldate
+    school series title type url volume year yomi language langid
 
     % 以下は普通の bst ファイルでは利用されないフィールド
     jauthor jkanyaku jtitle jpublisher jyear jnote
@@ -3341,15 +3341,15 @@ FUNCTION {format.url}
     { type$ "web_page" = bst.show.url or
 	{ is.kanji.entry
 	    { bst.url.pre.jp url * bst.url.post.jp *
-		urldate empty$
+		access empty$
 		    { "" * }
-		    { bst.access.pre.jp * urldate * bst.access.post.jp * }
+		    { bst.access.pre.jp * access * bst.access.post.jp * }
 		if$
 	    }
 	    { bst.url.pre url * bst.url.post *
-		urldate empty$
+		access empty$
 		    { "" * }
-		    { bst.access.pre * urldate * bst.access.post * }
+		    { bst.access.pre * access * bst.access.post * }
 		if$
 	    }
 	  if$
