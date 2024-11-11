@@ -2,16 +2,16 @@
 
 \LoadClass[
   twocolumn,
-  column_gap=3zw,
+  column_gap=8truemm,
   article,
   paper=a4,
   fontsize=9pt,
-  baselineskip=1.2zh, % 見た目で合うように微調整した結果
+  baselineskip=12.7pt, % 見た目で合うように微調整した結果
   disablejfam,
-  head_space=22truemm,
-  foot_space=22truemm,
-  gutter=19truemm,
-  fore-edge=19truemm
+  head_space=20truemm,
+  foot_space=20truemm,
+  gutter=20truemm,
+  fore-edge=20truemm
 ]{jlreq}
 
 \usepackage{silence}
