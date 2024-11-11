@@ -1,4 +1,4 @@
-% pethesis.bst: 精密工学科卒論の BibTeX スタイルファイル，jecon.bstを改良して作成
+% thesis.bst: 人間環境学専攻修論の BibTeX スタイルファイル，jecon.bstを改良して作成
 % 元のjecon.bstはnatbibパッケージが必要だが，pethesis.bstでは使用しない
 
 %% jecon.bst: 経済学用 BibTeX スタイルファイル（BibTeX style file for economics）
