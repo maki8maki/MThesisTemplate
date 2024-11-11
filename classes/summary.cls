@@ -17,7 +17,7 @@
 \usepackage{silence}
 \WarningFilter{caption}{Unknown document}
 
-\usepackage{pesummary}
+\usepackage{summary}
 \usepackage[numbers]{natbib}
 \renewcommand{\bibnumfmt}[1]{[#1]\hspace{0.5em}} % 番号の後に少し空白を入れる
 \usepackage{amsmath, mathtools}

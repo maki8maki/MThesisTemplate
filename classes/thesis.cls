@@ -5,7 +5,7 @@
 \usepackage{silence}
 \WarningFilter{caption}{Unknown document}
 
-\usepackage{pethesis}
+\usepackage{thesis}
 \usepackage{amsmath,amssymb,bm}
 \usepackage{minitoc}
 \usepackage{booktabs}
