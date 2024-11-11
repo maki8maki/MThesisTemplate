@@ -15,38 +15,44 @@
 \textheight=231truemm % 10pt :243mm
 
 % 表紙の設定
+\def\affiliation#1{\gdef\@affiliation{#1}}
 \def\thesistype#1{\gdef\@thesistype{#1}}
+\def\fiscalyear#1{\gdef\@fiscalyear{#1}}
 \def\title#1{\gdef\@title{#1}}
 \def\etitle#1{\gdef\@etitle{#1}}
+\def\date#1{\gdef\@date{#1}}
 \def\studentid#1{\gdef\@studentid{#1}}
 \def\author#1{\gdef\@author{#1}}
 \def\supervisor#1{\gdef\@supervisor{#1}}
-\def\affiliation#1{\gdef\@affiliation{#1}}
 
 \renewcommand\maketitle{
 	\thispagestyle{empty}
 
 	\begin{center}
-		\vskip1.8\baselineskip
-		\@thesistype\\
-		\vspace*{3truemm}
-		\includegraphics[width=45truemm]{figures/utlogo.pdf}\\
-		\vspace*{2\zh}
+		{\large \@affiliation \vskip3\baselineskip}
+
+		{\Large \@fiscalyear}
+		\vskip\baselineskip
+		{\Large \@thesistype}
+		{\small \vskip5\baselineskip}
 
 		% 空白の大きさはタイトルの行数に応じて調整
-		{\huge \@title}\\
-		{\large \vskip\baselineskip}
-		{\Large \@etitle}\\
-		\vskip12\baselineskip
+		{\LARGE \@title}
+		\vspace*{2truemm}
+		{\LARGE \@etitle}
+		{\small \vskip9\baselineskip}
 
-		{\Large 指導教員 \@supervisor}\\
-		\vskip2\baselineskip
+		{
+			\large
+			\@date 提出
+			\vskip\baselineskip
+			指導教員　\@supervisor　　印
+		}
+		{\small \vskip6\baselineskip}
 
-		{\large \@affiliation}\\
-		{\large 学生証番号\@studentid} \\
-		\vskip\baselineskip
+		{\large 学籍番号　\@studentid\vskip2\baselineskip}
 		{\LARGE  \@author}
-		\vfill
+		% \vfill
 	\end{center}
 	\newpage
 	\cleardoublepage
