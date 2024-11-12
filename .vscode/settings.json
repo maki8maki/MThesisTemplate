@@ -133,8 +133,8 @@
         "*.mtc*",
         "*.bmt"
     ],
-    "latex-workshop.latexindent.path": "bash",
-    "latex-workshop.latexindent.args": [
+    "latex-workshop.formatting.latexindent.path": "bash",
+    "latex-workshop.formatting.latexindent.args": [
         "/workdir/bin/linter.sh",
     ],
     "latex-workshop.message.latexlog.exclude": [
