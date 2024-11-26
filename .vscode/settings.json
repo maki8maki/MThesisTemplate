@@ -146,4 +146,6 @@
         "tex",
         "latex"
     ],
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
 }
