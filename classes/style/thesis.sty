@@ -52,7 +52,6 @@
 
 		{\large 学籍番号　\@studentid\vskip2\baselineskip}
 		{\LARGE  \@author}
-		% \vfill
 	\end{center}
 	\newpage
 	\cleardoublepage
@@ -68,7 +67,7 @@
 \fancyhead[LO]{\gdef\headrulewidth{.4pt}}
 \fancyfoot[C]{\thepage}
 \renewcommand{\chaptermark}[1]{\markboth{第\ \thechapter\ 章~#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}{}}
 
 %
 % \chapter
