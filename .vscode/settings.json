@@ -55,7 +55,7 @@
     // Sort bib order
     "latex-workshop.bibtex-format.sort.enabled": true,
     "latex-workshop.bibtex-format.sortby": [
-        "key"
+        "title"
     ],
     // 使用パッケージのコマンドや環境の補完を有効にする
     "latex-workshop.intellisense.package.enabled": true,
