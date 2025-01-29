@@ -70,26 +70,3 @@
 % 3桁区切りでコンマを入れる **小数点以下にも入るので注意**
 \newcommand{\qtycomma}[2]{\qty[group-minimum-digits = 3, group-separator = {,}]{#1}{#2}}
 \newcommand{\numcomma}[1]{\num[group-minimum-digits = 3, group-separator = {,}]{#1}}
-
-% 元のテンプレートにはあったが，使用しないパッケージ等を以下に置く
-% \usepackage{subfigure}
-% \usepackage{hhline} % 表中の線をカスタムできる
-% \usepackage{slashbox} % 表に斜線を入れられる
-% \usepackage{colortbl} % 表を色付けできる
-% \usepackage{lscape} % 図や表などを回転できる
-% \usepackage{pdfpages} % PDFを挿入できる
-% \usepackage{threeparttable} % ★★★ 田中追加 ★★★, 表に脚注をつけられる
-% \usepackage{CJKutf8} % 英語文書の一部のみを日本語にするときに利用
-% \usepackage{otf} %橘高追加, Open Typeフォントを使える
-% \renewcommand{\refname}{}
-% \renewcommand{\figurename}{図 }   % ★★★ 田中追加（図→Fig. に変更） ★★★
-% \renewcommand{\tablename}{Table }   % ★★★ 田中追加（表→Table に変更） ★★★
-% \newcommand\whline{
-%   \noalign{\xdef\origarrayrulewidth{\the\arrayrulewidth}%
-%   \global\arrayrulewidth 3\arrayrulewidth}
-%   \hline
-%   \noalign{\global\arrayrulewidth\origarrayrulewidth}%
-%   }
-% \newcommand\dis{
-%   \displaystyle
-% }
