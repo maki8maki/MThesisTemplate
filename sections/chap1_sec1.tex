@@ -6,7 +6,7 @@
 
 \section{背景}
 \label{sec:intro_background}
-文献の引用例：\cite{cao2014main1-1-4-3}，\cite{Kiribayashi2018}
+文献の引用例はこのようになる\cite{cao2014main1-1-4-3,Kiribayashi2018,kingma2017Adam,tang2021cause,Zacny2010}.
 
 すべての図表は必ず本文中で引用して説明する．
 
@@ -80,6 +80,7 @@
 \end{figure}
 
 % textlint-disable
+
 \vspace{3\zh}
 \begin{table}[t]
   \caption{走行に必要なコーン指数（\protect\cite{maff2015}を基に作成）}
@@ -87,12 +88,12 @@
   \centering
   \begin{tabular}{cc}
     \toprule
-    建設機械の種類                      & コーン指数[\si{\kN/\m^2}] \\
+    建設機械の種類                      & コーン指数[\unit{\kN/\m^2}] \\
     \midrule
     超湿地ブルドーザー                    & 200以上                \\
     湿地ブルドーザー                     & 300以上                \\
-    普通ブルドーザー（\SI{15}{\tonne}級程度） & 500以上                \\
-    普通ブルドーザー（\SI{21}{\tonne}級程度） & 700以上                \\
+    普通ブルドーザー（\qty{15}{\tonne}級程度） & 500以上                \\
+    普通ブルドーザー（\qty{21}{\tonne}級程度） & 700以上                \\
     スクレープドーザ                     & 600以上                \\
                                  & （超湿地型は400以上）         \\
     被けん引式スクレーパ（小型）               & 700以上                \\
@@ -101,5 +102,6 @@
     \bottomrule
   \end{tabular}
 \end{table}
+
 % textlint-enable
 \end{document}

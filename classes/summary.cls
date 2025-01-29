@@ -25,18 +25,22 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{siunitx}
-\sisetup{detect-all} % その場のフォントに合わせる
+\sisetup{
+  detect-all, % その場のフォントに合わせる
+  range-phrase={--}
+}
 \usepackage{caption}
-% \usepackage[subrefformat=parens]{subcaption}
+\usepackage[subrefformat=parens]{subcaption}
 \captionsetup{compatibility=false, labelsep=quad}
-% \usepackage[unicode=true]{hyperref}
-% \hypersetup{ % hyperrefパッケージのオプション設定
-% setpagesize=false, % ページサイズが変わってしまうのを防ぐ
-% colorlinks=true, % リンクに色を付ける
-% urlcolor=black, % 外部参照は黒（＝地の文と同じ）
-% linkcolor=black, % 内部参照は黒（＝地の文と同じ）
-% citecolor=black % 文献参照は黒（＝地の文と同じ）
-% }
+\usepackage[unicode=true]{hyperref}
+\urlstyle{same} % 地の文とurlのフォントを同じにする
+\hypersetup{ % hyperrefパッケージのオプション設定
+  setpagesize=false, % ページサイズが変わってしまうのを防ぐ
+  colorlinks=true, % リンクに色を付ける
+  urlcolor=black, % 外部参照は黒（＝地の文と同じ）
+  linkcolor=black, % 内部参照は黒（＝地の文と同じ）
+  citecolor=black % 文献参照は黒（＝地の文と同じ）
+}
 
 % ページスタイル
 \usepackage{fancyhdr}
@@ -96,6 +100,12 @@
 \renewcommand{\tablename}{Table\ }
 
 \newcommand{\reffig}[1]{図\ref{#1}}
-% \newcommand{\refsubfig}[1]{\subref{#1}}
+\newcommand{\refsubfig}[1]{\subref{#1}}
 \newcommand{\reftab}[1]{表\ref{#1}}
 \newcommand{\refeqn}[1]{式\eqref{#1}}
+\newcommand{\refsec}[1]{\ref{#1}節}
+\newcommand{\refsubsec}[1]{\ref{#1}項}
+
+% 3桁区切りでコンマを入れる **小数点以下にも入るので注意**
+\newcommand{\qtycomma}[2]{\qty[group-minimum-digits = 3, group-separator = {,}]{#1}{#2}}
+\newcommand{\numcomma}[1]{\num[group-minimum-digits = 3, group-separator = {,}]{#1}}

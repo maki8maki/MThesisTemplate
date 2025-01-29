@@ -63,7 +63,8 @@ ENTRY
   %%% 文献フィールドの宣言
   { urldate address author booktitle chapter doi edition editor howpublished
     institution journal key month note number organization pages publisher
-    school series title type url volume year yomi language langid
+    school series title type url volume year yomi language langid customalabel
+    archiveprefix
 
     % 以下は普通の bst ファイルでは利用されないフィールド
     jauthor jkanyaku jtitle jpublisher jyear jnote
@@ -454,13 +455,12 @@ FUNCTION {bst.max.author.num.display}
 %
 FUNCTION {bst.and.others}
 % { " et~al." }	 % (default)
-{ "" }
+{ ", et~al." }
 
 %%% 日本語用
 %
 FUNCTION {bst.and.others.jp}
-% { "他" }    % (default)
-{ "" }
+{ "他" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	author
@@ -562,25 +562,25 @@ FUNCTION {bst.title.post.jp}
 %
 FUNCTION {bst.book.pre}
 % { " \textit{ " }    % (default)
-{ "``" }
+{ "" }
 
 % book の title 後に付ける文字列 (英語文献用)
 %
 FUNCTION {bst.book.post}
 % { "}" }	   % (default)
-{ ",''" }
+{ "" }
 
 % book の title 前に付ける文字列 (日本語文献用)
 %
 FUNCTION {bst.book.pre.jp}
 % { "『" }    % (default)
-{ "``" }
+{ "" }
 
 % book の title 後に付ける文字列 (日本語文献用)
 %
 FUNCTION {bst.book.post.jp}
 % { "』" }    % (default)
-{ ",''" }
+{ "" }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	booktitle
@@ -883,7 +883,8 @@ FUNCTION {bst.address.post.jp}
 % publisher の前に付ける文字列 (英語文献用)
 %
 FUNCTION {bst.publisher.pre}
-{ ": " }    % (default)
+% { ": " }    % (default)
+{ ", " }
 
 % publisher の後に付ける文字列 (英語文献用)
 %
@@ -1218,6 +1219,22 @@ FUNCTION {bst.phdthesis}
 %
 FUNCTION {bst.phdthesis.jp}
 { "博士論文" }	  % (default)
+
+% arxiveprerfixの前につける文字列
+FUNCTION {bst.archiveprefix.pre}
+{ " " }
+
+% arxiveprerfixの後につける文字列
+FUNCTION {bst.archiveprefix.post}
+{ " preprint" }
+
+% preprint用のnumberの前につける文字列
+FUNCTION {bst.number.preprint.pre}
+{ " " }
+
+% preprint用のnumberの後につける文字列
+FUNCTION {bst.number.preprint.post}
+{ "" }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -2552,12 +2569,12 @@ FUNCTION {format.year}
       "" }
     { is.kanji.entry
 	{ bst.kansuji.jp #0 =
-	   { bst.year.pre.jp year * extra.label * bst.year.post.jp * }
+	   { bst.year.pre.jp year * bst.year.post.jp * }
 	   { bst.year.pre.jp year convert.year.kanji *
-	     extra.label convert.alphabet.zenkaku * bst.year.post.jp * }
+	     bst.year.post.jp * }
 	  if$
 	}
-	{ bst.year.pre year * extra.label * bst.year.post * }
+	{ bst.year.pre year * bst.year.post * }
       if$
     }
   if$
@@ -2626,8 +2643,7 @@ FUNCTION {output.series}
 
 %%% number と series を出力
 FUNCTION {format.number.series}
-{ volume empty$
-    { number empty$
+{ number empty$
       bst.hide.number #0 = not or
 	% number is empty
 	{ series empty$
@@ -2654,9 +2670,6 @@ FUNCTION {format.number.series}
 	  if$
 	}
       if$
-    }
-    { "" }
-  if$
 }
 
 %%% 数字かどうか判断する
@@ -2898,8 +2911,12 @@ FUNCTION { multi.page.check }
       swap$ duplicate$ "," =
       swap$ "+" =
       or or
-	{ #1 'multiresult := }
-	{ t #2 global.max$ substring$ 't := }
+        { #1 'multiresult := }
+        { t text.length$ #1 =
+          { "" 't := }
+          { t #2 global.max$ substring$ 't := }
+          if$
+        }
       if$
     }
   while$
@@ -2918,7 +2935,7 @@ FUNCTION {format.pages}
 	}
 	{ pages multi.page.check
 	  { bst.pages.pre pages * n.dashify * bst.pages.post }
-	  { bst.page.pre pages * bst.page.post }
+	  { bst.page.pre pages tie.or.space.connect * bst.page.post }
 	 if$
 	}
        if$
@@ -3404,6 +3421,29 @@ FUNCTION {format.note}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% preprint用の出力
+FUNCTION {format.archiveprefix}
+{
+  archiveprefix empty$
+    { "" }
+    { bst.archiveprefix.pre archiveprefix * bst.archiveprefix.post *}
+  if$
+}
+
+FUNCTION {format.number.preprint}
+{
+  number empty$
+    { "" }
+    { bst.number.preprint.pre number * bst.number.preprint.post * }
+  if$
+}
+
+FUNCTION {format.archive}
+{
+  format.archiveprefix output.nocomma format.number.preprint
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	 \havarditem の出力．
 
 FUNCTION {output.number.index}
@@ -3744,6 +3784,29 @@ FUNCTION {misc}
   format.url.doi output.nocomma
 
   format.note output.nocomma
+  fin.entry
+  empty.misc.check
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	preprint の処理
+FUNCTION {preprint}
+{ output.bibitem
+  format.authors "author" output.check.nocomma
+  bst.year.position #0 =
+    { format.year "year" output.check.nocomma }
+    'skip$
+  if$
+  format.misc.title output.nocomma
+  format.archive output.nocomma
+
+  remove.irrelevant.kutoten
+
+  bst.year.position #0 = not
+    { format.date output.nocomma }
+    { format.month output.nocomma }
+  if$
+
   fin.entry
   empty.misc.check
 }
@@ -4173,15 +4236,14 @@ FUNCTION {format.lab.names.abb}
 		{ s #1 "{ll}" format.name$ 't := }
 		'skip$
 	      if$
-	      t bst.and.others.jp * }
+	      t }
 
 	    % first name が alphabet のケース（外国人名のケース）
-	    { s #1 "{ll}" format.name$ 't :=
-	      t bst.and.others.jp * }
+	    { s #1 "{ll}" format.name$ 't := t }
 	  if$
 	 }
 	 % author名がアルファベットのケース
-	 { s #1 "{ll}" format.name$ bst.and.others * }
+	 { s #1 "{ll}" format.name$ }
        if$
      }
    if$
@@ -4189,13 +4251,17 @@ FUNCTION {format.lab.names.abb}
 
 %%% これは abbreviated author 名
 FUNCTION {author.key.label.abb}
-{ author empty$
-    { key empty$
-	{ cite$ #1 #3 substring$ }
-	{ key #3 text.prefix$ }
-      if$
+{ customalabel empty$
+    { author empty$
+      { key empty$
+        { cite$ #1 #3 substring$ }
+        { key #3 text.prefix$ }
+        if$
+      }
+      { author format.lab.names.abb }
+    if$
     }
-    { author format.lab.names.abb }
+    { customalabel }
   if$
 }
 
