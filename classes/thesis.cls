@@ -14,7 +14,10 @@
 \usepackage{ascmac} % 枠の中に文章を記述する
 \usepackage{url}
 \usepackage{siunitx} % 単位を簡単に記述できる
-\sisetup{detect-all} % その場のフォントに合わせる
+\sisetup{
+  detect-all, % その場のフォントに合わせる
+  range-phrase={--}
+}
 \usepackage{caption}
 \usepackage[subrefformat=parens]{subcaption} %橘高追加
 \captionsetup{compatibility=false, labelsep=quad} %橘高追加 %コロンがcaptionに入ってたので，labelsep=quadを追加(藤野)
@@ -65,7 +68,7 @@
 \newcommand{\argmin}{\mathop{\textrm{arg~min}}\limits}  % ★★★ 田中追加 ★★★
 
 % 3桁区切りでコンマを入れる **小数点以下にも入るので注意**
-\newcommand{\SIcomma}[2]{\SI[group-minimum-digits = 3, group-separator = {,}]{#1}{#2}}
+\newcommand{\qtycomma}[2]{\qty[group-minimum-digits = 3, group-separator = {,}]{#1}{#2}}
 \newcommand{\numcomma}[1]{\num[group-minimum-digits = 3, group-separator = {,}]{#1}}
 
 % 元のテンプレートにはあったが，使用しないパッケージ等を以下に置く

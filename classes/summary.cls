@@ -25,7 +25,10 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{siunitx}
-\sisetup{detect-all} % その場のフォントに合わせる
+\sisetup{
+  detect-all, % その場のフォントに合わせる
+  range-phrase={--}
+}
 \usepackage{caption}
 % \usepackage[subrefformat=parens]{subcaption}
 \captionsetup{compatibility=false, labelsep=quad}
@@ -101,3 +104,7 @@
 \newcommand{\refeqn}[1]{式\eqref{#1}}
 \newcommand{\refsec}[1]{\ref{#1}節}
 \newcommand{\refsubsec}[1]{\ref{#1}項}
+
+% 3桁区切りでコンマを入れる **小数点以下にも入るので注意**
+\newcommand{\qtycomma}[2]{\qty[group-minimum-digits = 3, group-separator = {,}]{#1}{#2}}
+\newcommand{\numcomma}[1]{\num[group-minimum-digits = 3, group-separator = {,}]{#1}}
