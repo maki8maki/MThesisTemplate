@@ -96,6 +96,8 @@
 \renewcommand{\tablename}{Table\ }
 
 \newcommand{\reffig}[1]{図\ref{#1}}
-% \newcommand{\refsubfig}[1]{\subref{#1}}
+\newcommand{\refsubfig}[1]{\subref{#1}}
 \newcommand{\reftab}[1]{表\ref{#1}}
 \newcommand{\refeqn}[1]{式\eqref{#1}}
+\newcommand{\refsec}[1]{\ref{#1}節}
+\newcommand{\refsubsec}[1]{\ref{#1}項}
