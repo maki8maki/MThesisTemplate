@@ -12,18 +12,19 @@
 \thesistype{修士論文}
 \title{和文題目}
 \etitle{English Title}
-\date{\today}
+\date{2025年2月1日}
 \supervisor{◯◯　◯◯　教授}
 \studentid{00000000}
 \author{{◯◯　◯◯}}
 
 \maketitle
 
+\frontmatter
+
 % 概要
 \subfile{sections/abst.tex}
 
 % 目次
-\frontmatter
 \tableofcontents
 % 図目次
 \listoffigures
@@ -40,6 +41,10 @@
 \subfile{sections/chap3.tex}
 \subfile{sections/chap4.tex}
 
+{
+
+\backmatter
+
 % ********
 % 謝辞
 % ********
@@ -54,6 +59,8 @@
 % 研究業績
 % ************
 % \subfile{sections/achieve.tex}
+
+}
 
 % ********
 % 付録

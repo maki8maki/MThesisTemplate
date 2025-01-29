@@ -1,8 +1,8 @@
-%pethesis.sty
+%thesis.sty
 \typeout{thesis.sty - Sat, Jan 23 2010 by Takashi Michikawa}
 \usepackage{fancyhdr}
 \usepackage{fancybox}
-\usepackage{enumerate}
+\usepackage{etoolbox}
 
 % 1inch = 25.4 mm
 % A4 210mm~297mm
@@ -57,17 +57,24 @@
 	\cleardoublepage
 }
 
-%http://www.biwako.shiga-u.ac.jp/sensei/kumazawa/tex/fancyhdrbook.html
-\pagestyle{fancyplain}
+\fancypagestyle{mainmatterstyle}[fancy]{
+	\fancyhead{}
+	\fancyhead[RO,RE]{\rightmark}
+	\fancyhead[LE,LO]{\leftmark}
+	\fancyhead[RE]{\gdef\headrulewidth{.4pt}}
+	\fancyhead[LO]{\gdef\headrulewidth{.4pt}}
+	\fancyfoot[C]{\thepage}
+	\renewcommand{\chaptermark}[1]{\markboth{\@chapapp\thechapter\@chappos\ ##1}{}}
+	\renewcommand{\sectionmark}[1]{\markright{\thesection\ ##1}{}}
+}
 
-\fancyhead{}
-\fancyhead[RO,RE]{\rightmark}
-\fancyhead[LE,LO]{\leftmark}
-\fancyhead[RE]{\gdef\headrulewidth{.4pt}}
-\fancyhead[LO]{\gdef\headrulewidth{.4pt}}
-\fancyfoot[C]{\thepage}
-\renewcommand{\chaptermark}[1]{\markboth{第\ \thechapter\ 章~#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}{}}
+\fancypagestyle{othermatterstyle}[mainmatterstyle]{
+	\renewcommand{\chaptermark}[1]{\markboth{##1}{}}
+}
+
+\appto\frontmatter{\pagestyle{othermatterstyle}}
+\appto\mainmatter{\pagestyle{mainmatterstyle}}
+\appto\backmatter{\pagestyle{othermatterstyle}}
 
 %
 % \chapter
