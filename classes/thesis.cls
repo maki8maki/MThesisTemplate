@@ -6,7 +6,7 @@
 \WarningFilter{caption}{Unknown document}
 
 \usepackage{thesis}
-\usepackage{amsmath,amssymb,bm}
+\usepackage{amsmath,amssymb,mathtools}
 \usepackage{minitoc}
 \usepackage{booktabs}
 \usepackage{graphicx}
