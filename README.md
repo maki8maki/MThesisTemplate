@@ -119,8 +119,12 @@
 
 ### 参考文献
 
+* Zoteroのbibtex出力を前提としています
+  * Zoteroを用いた文献管理について[ここ](https://zenn.dev/kinakomochi5250/articles/literature-zotero)で紹介している
 * ウェブページの場合はエントリータイプを`web_page`とすると，作者・タイトル・URL・最終閲覧日が表示される
   * `sections/reference_web.bib`を参照
+* プレプリントの場合はエントリータイプを`preprint`とすると，作者・タイトル等が表示される
+   * `sections/reference.bib`を参照
 * 日本語文献の場合はyomiフィールドを追加しないと正しくソートされない
   * 書き方は`yomi = {せい, めい}`
 * caption内の引用でエラーが出る場合は`\protect{}`で囲むと良い（とりあえず囲んでも問題はないと思われる）
