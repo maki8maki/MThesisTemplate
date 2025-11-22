@@ -19,7 +19,7 @@ jobs:
     name: textlint / reviewwdog
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           submodules: true
       - name: textlint-github-pr-review
