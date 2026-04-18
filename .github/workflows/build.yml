@@ -52,7 +52,7 @@ jobs:
       # Releaseを作成する
       # https://github.com/YOURNAME/YOURREPO/releases に 'Release タグ名' で作成
       - name: Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: /workdir/out/*.pdf
         if: startsWith(github.ref, 'refs/tags/')
